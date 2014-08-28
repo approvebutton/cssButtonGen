@@ -18,5 +18,51 @@ head
 body
   /[if lt IE 7]
     | <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  test Test
+  header.header
+    .container
+      h1
+        | CSS3 Button Generator
+  section.generate
+    .container
+      /! Options for Button
+      .options
+        .options__title
+          | Options
+        /! Radius Slider
+        .options__radius
+          .options__description
+            | Border-radius
+          .options__scale
+            .options__radius-scale-bar.bar
+            .options__radius-scale-toogle.toogle
+        /! Size Slider
+        .options__size
+          .options__decsription
+            | Border-size
+          .options__scale
+            .options__size-scale-bar.bar
+            .options__size-scale-toogle.toogle
+        /! Text for Button
+        .options__text
+          .options__description
+            | Text
+          .options__input
+            input type="text"
+      .result__button
+        button#result Button text
+  section.result
+    .container
+      /! Results
+      .result__form
+        form
+          input type="textarea"
+          input type="textarea"
+          input type="email"
+          button#submit Submit
+  footer.footer
+    .container
+      .footer__copyright
+        |  Lorem ipsum dolor sit amet.
+
   script src="js/main.js"
+
