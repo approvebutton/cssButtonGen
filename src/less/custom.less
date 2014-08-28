@@ -2,15 +2,154 @@
    Author's custom styles
    ========================================================================== */
 
-test {
-  color:red;
-  @media @tablet {
-    color:green;
+/* --- Colors --- */
+
+@bg:         #2E2D2B;
+@scale:      #4B4B4B;
+@green:      #B4C7B5;
+@grey:       #4B4B4B;
+@red:        #C46D6D;
+@font-color: #E3D3C2;
+
+.container {
+  .clearfix;
+  width: 90%;
+  margin: 5% auto;
+}
+
+body {
+  background: @bg;
+  color: @font-color;
+}
+
+.header {
+  h1 {
+    text-align: center;
+    font-size: 1.9em;
+    @media @tablet {
+      color: red;
+    }
+    @media @wide {
+      color:green;
+    }
   }
+}
+/* --- OPTIONS --- */
+
+.options {
+  text-align: center;
   @media @wide {
-    color:blue;
+    float: left;
   }
-  @media @maxWidth {
-    color:orange;
+}
+.options__title {
+  text-transform: uppercase;
+  text-align: center;
+  @media @wide{
   }
+}
+.options__description,
+.options__input {
+  text-align: left;
+  margin-bottom: 10px;
+    input {
+      background: @grey;
+      border: none;
+      height: 30px;
+      padding: 0 15px;
+      .border-radius( 15px; )
+    }
+}
+.options__radius,
+.options__size {
+  margin-bottom: 10px;
+}
+.result__button {
+  text-align: center;
+}
+
+
+/* --- RESULT BUTTON --- */
+.result_button {
+  &:extend(.options);
+}
+
+/* --- RESULT CODE --- */
+.result__title {
+  &:extend(.options__title);
+}
+
+
+/* --- SLIDER ---*/
+.ui-slider {
+  position: relative;
+}
+.ui-slider-horizontal {
+  height: .8em;
+  .border-radius (@radius: 10px);
+  background: @grey;
+}
+.ui-slider .ui-slider-handle {
+  .border-radius (@radius: 10px);
+  position: absolute;
+  z-index: 2;
+  width: 10px;
+  height: 1.5em;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+  top: -.4em;
+  margin-left: -.3em;
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6;
+  font-weight: normal;
+  color: #555555;
+  outline: none;
+  border: none;
+}
+.ui-slider-range {
+  .border-radius (@radius: 10px);
+  background: @green;
+  height: 100%;
+}
+
+/* --- RESULT CODE --- */
+
+.result__form {
+  text-align: center;
+}
+.form__css {
+  width: 100%;
+}
+textarea {
+  width: 99%;
+  height: 150px;
+  margin-bottom: 10px;
+  background: @grey;
+  border: none;
+  .border-radius(15px);
+  .placeholder(@color: @font-color);
+  resize: vertical;
+  outline: none;
+  padding: 10px;
+}
+input[type="email"] {
+  background: @grey;
+  border: none;
+  padding: 0 15px;
+  .border-radius(25px);
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+#submit {
+  background: @green;
+  border: none;
+  height: 40px;
+  width: 150px;
+  .border-radius(50px;);
+}
+
+textarea {
+
 }

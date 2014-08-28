@@ -13,7 +13,8 @@ var gulp      = require('gulp'),
     es        = require('event-stream'),
     webserver = require('gulp-webserver'),
     notify    = require('gulp-notify'),
-    slim      = require('gulp-slim');
+    slim      = require('gulp-slim'),
+    plumber   = require('gulp-plumber');
 
 gulp.task('clean', function () {
     // Clear the destination folder
@@ -48,7 +49,7 @@ gulp.task('scripts', function () {
              .pipe(jshint.reporter(require('jshint-stylish'))),
 
         // Concatenate, minify and copy all JavaScript
-        gulp.src(['src/js/**/*.js', '!src/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'])
+        gulp.src(['src/js/**/*.js', '!src/js/vendor/**/*.js'])
             .pipe(concat('main.js'))
             .pipe(uglify())
             .pipe(gulp.dest('build/js'))
@@ -59,6 +60,7 @@ gulp.task('scripts', function () {
 gulp.task('styles', function(){
     // Compile LESS files
     return gulp.src('src/less/app.less')
+        .pipe(plumber())
         .pipe(less())
         .pipe(rename('style.css'))
         .pipe(csso())

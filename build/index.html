@@ -30,20 +30,14 @@
           <div class="options__description">
             Border-radius
           </div>
-          <div class="options__scale">
-            <div class="options__radius-scale-bar bar"></div>
-            <div class="options__radius-scale-toogle toogle"></div>
-          </div>
+          <div class="options__slider"></div>
         </div>
         <!--Size Slider-->
         <div class="options__size">
-          <div class="options__decsription">
+          <div class="options__description">
             Border-size
           </div>
-          <div class="options__scale">
-            <div class="options__size-scale-bar bar"></div>
-            <div class="options__size-scale-toogle toogle"></div>
-          </div>
+          <div class="options__slider"></div>
         </div>
         <!--Text for Button-->
         <div class="options__text">
@@ -51,11 +45,14 @@
             Text
           </div>
           <div class="options__input">
-            <input type="text" />
+            <input type="text" value="Button" />
           </div>
         </div>
       </div>
       <div class="result__button">
+        <div class="result__title">
+          Result
+        </div>
         <button id="result">Button text</button>
       </div>
     </div>
@@ -65,7 +62,13 @@
       <!--Results-->
       <div class="result__form">
         <form>
-          <input type="textarea" /><input type="textarea" /><input type="email" /><button id="submit">Submit</button>
+          <div class="form__html">
+            <textarea placeholder="HTML code" readonly=""></textarea>
+          </div>
+          <div class="form__css">
+            <textarea placeholder="CSS code" readonly=""></textarea>
+          </div>
+          <input placeholder="...your Email" type="email" /><button id="submit">Submit</button>
         </form>
       </div>
     </div>
@@ -77,5 +80,7 @@
       </div>
     </div>
   </footer>
+  <script src="js/vendor/jquery-1.11.1.min.js"></script>
+  <script src="js/vendor/jquery-ui.min.js"></script>
   <script src="js/main.js"></script>
 </body>

@@ -1,6 +1,5 @@
 // Avoid `console` errors in browsers that lack a console.
 (function() {
-    "use strict";
     var method;
     var noop = function () {};
     var methods = [
@@ -23,3 +22,4 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+
