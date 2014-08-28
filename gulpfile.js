@@ -43,12 +43,12 @@ gulp.task('scripts', function () {
     return es.concat(
         // Detect errors and potential problems in your JavaScript code
         // You can enable or disable default JSHint options in the .jshintrc file
-         gulp.src(['src/js/**/*.js'])
+         gulp.src(['src/js/**/*.js', '!src/js/vendor/**/*.js'])
              .pipe(jshint('.jshintrc'))
              .pipe(jshint.reporter(require('jshint-stylish'))),
 
         // Concatenate, minify and copy all JavaScript
-        gulp.src(['src/js/**/*.js'])
+        gulp.src(['src/js/**/*.js', '!src/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'])
             .pipe(concat('main.js'))
             .pipe(uglify())
             .pipe(gulp.dest('build/js'))
