@@ -2,15 +2,232 @@
    Author's custom styles
    ========================================================================== */
 
-test {
-  color:red;
+/* --- Colors --- */
+
+@bg:         #2E2D2B;
+@scale:      #4B4B4B;
+@green:      #B4C7B5;
+@grey:       #4B4B4B;
+@red:        #C46D6D;
+@font-color: #E3D3C2;
+@font-color2:#AEA99E;
+
+/* --- Fonts --- */
+
+@import "http://webfonts.ru/import/monofur.css";
+@import "http://webfonts.ru/import/caviar.css";
+@fontMonofur: 'Monofur', sans-serif;
+@fontCaviar: 'Caviar Dreams', sans-serif;
+
+
+.container {
+  .clearfix;
+  width: 90%;
+  margin: 5% auto;
+  @media @maxWidth {
+    width: 960px;
+  }
+}
+
+body {
+  background: @bg;
+  color: @font-color;
+  font-family: @fontCaviar;
+  font-weight: bold;
+}
+
+.header {
+  h1 {
+    text-align: center;
+    font-size: 1.9em;
+  }
+}
+/* --- OPTIONS --- */
+
+.options {
+  position: relative;
+  text-align: center;
+  margin-bottom: 20px;
   @media @tablet {
-    color:green;
+    text-align: left;
   }
   @media @wide {
-    color:blue;
+    float: left;
+
+    &:after {
+      position: absolute;
+      right: -80px;
+      top:0;
+      .inlineblock;
+      content: '';
+      background: @grey;
+      width:2px;
+      height: 165px;
+    }
   }
-  @media @maxWidth {
-    color:orange;
+}
+.options__title {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 15px;
+  @media @tablet{
+    
   }
+}
+.options__description {
+  text-align: left;
+  margin-bottom: 10px;
+
+  @media @tablet {
+    .inlineblock;
+    width: 120px;
+    vertical-align: none;
+   }
+}
+.options__input {
+  text-align: left;
+  input {
+    background: @grey;
+    border: none;
+    height: 30px;
+    width: 100%;
+    padding: 0 20px;
+    .border-radius(15px);
+    }
+  @media @tablet {
+    .inlineblock;
+    vertical-align: none;
+    margin-left: 15px;
+    width:250px;
+  }
+}
+.options__radius,
+.options__size {
+  margin-bottom: 10px;
+}
+.result__button {
+  text-align: center;
+}
+
+
+/* --- RESULT BUTTON --- */
+.result_button {
+  &:extend(.options);
+}
+
+/* --- RESULT CODE --- */
+.result__title {
+  &:extend(.options__title);
+}
+
+
+/* --- SLIDER ---*/
+.ui-slider {
+  position: relative;
+
+  @media @tablet {
+    .inlineblock;
+    width: 250px;
+    vertical-align: none;
+    margin-left: 15px;
+  }
+}
+.ui-slider-horizontal {
+  height: .8em;
+  .border-radius (@radius: 10px);
+  background: @grey;
+}
+.ui-slider .ui-slider-handle {
+  .border-radius (@radius: 10px);
+  position: absolute;
+  z-index: 2;
+  width: 10px;
+  height: 1.5em;
+  cursor: default;
+  -ms-touch-action: none;
+  touch-action: none;
+  top: -.4em;
+  margin-left: -.3em;
+  border: 1px solid #d3d3d3;
+  background: #e6e6e6;
+  font-weight: normal;
+  color: #555555;
+  outline: none;
+  border: none;
+}
+#slider__radius {
+  .ui-slider-range {
+    .border-radius (@radius: 10px);
+    height: 100%;
+    background: @green;
+  }
+}
+#slider__size { 
+  .ui-slider-range {
+    .border-radius (@radius: 10px);
+    height: 100%;
+    background: @red;
+  }
+}
+
+/* --- RESULT CODE --- */
+
+.result__form {
+  position: relative;
+  text-align: center;
+  margin-bottom: 15px;
+  &:before {
+    .inlineblock;
+    position: absolute;
+    content:'';
+    left:0;
+    top: -50px;
+    height: 2px;
+    width: 100%;
+    background: @grey;
+  }
+}
+
+textarea {
+  width: 99%;
+  height: 150px;
+  margin-bottom: 15px;
+  background: @grey;
+  border: none;
+  .border-radius(15px);
+  .placeholder(@color: @font-color);
+  resize: vertical;
+  outline: none;
+  padding: 10px;
+  @media @wide {
+    width: 48%;
+    resize: both;
+    float: left;
+    margin-bottom: 35px;
+  }
+}
+.result__form-css {
+  @media @wide {
+    margin-left: 2%;
+    }
+}
+input[type="email"] {
+  background: @grey;
+  border: none;
+  padding: 0 15px;
+  .border-radius(25px);
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+#submit {
+  background: @green;
+  border: none;
+  height: 50px;
+  width: 150px;
+  .border-radius(60px;);
+  outline: none;
+  color: #fbfbfb;
+  font-size: 1.2em;
+  padding: 14px;
 }

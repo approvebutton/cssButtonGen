@@ -32,37 +32,40 @@ body
         .options__radius
           .options__description
             | Border-radius
-          .options__scale
-            .options__radius-scale-bar.bar
-            .options__radius-scale-toogle.toogle
+          .options__slider#slider__radius
         /! Size Slider
         .options__size
-          .options__decsription
+          .options__description
             | Border-size
-          .options__scale
-            .options__size-scale-bar.bar
-            .options__size-scale-toogle.toogle
+          .options__slider#slider__size
         /! Text for Button
         .options__text
           .options__description
             | Text
           .options__input
-            input type="text"
+            input type="text" value="Button"
       .result__button
+        .result__title
+          | Result
         button#result Button text
   section.result
     .container
       /! Results
       .result__form
         form
-          input type="textarea"
-          input type="textarea"
-          input type="email"
-          button#submit Submit
+          .form__html
+            textarea class="result__form-html" placeholder="HTML code" readonly=""
+          .form__css
+            textarea class="result__form-css" placeholder="CSS code" readonly=""
+          .form__email
+            input type="email" placeholder="...your Email"
+          .form__button 
+            button#submit Submit
   footer.footer
     .container
       .footer__copyright
         |  Lorem ipsum dolor sit amet.
-
+  
+  script src="js/vendor/jquery-1.11.1.min.js" 
   script src="js/main.js"
-
+  

@@ -3,7 +3,6 @@
 
 var gulp      = require('gulp'),
     gutil     = require('gulp-util'),
-    clean     = require('gulp-clean'),
     concat    = require('gulp-concat'),
     rename    = require('gulp-rename'),
     jshint    = require('gulp-jshint'),
@@ -13,13 +12,10 @@ var gulp      = require('gulp'),
     es        = require('event-stream'),
     webserver = require('gulp-webserver'),
     notify    = require('gulp-notify'),
-    slim      = require('gulp-slim');
+    slim      = require('gulp-slim'),
+    plumber   = require('gulp-plumber');
 
-gulp.task('clean', function () {
-    // Clear the destination folder
-    gulp.src('build/**/*.*', { read: false })
-        .pipe(clean({ force: true }));
-});
+
 
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `build` folder
@@ -48,7 +44,7 @@ gulp.task('scripts', function () {
              .pipe(jshint.reporter(require('jshint-stylish'))),
 
         // Concatenate, minify and copy all JavaScript
-        gulp.src(['src/js/**/*.js', '!src/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js'])
+        gulp.src(['src/js/**/*.js', '!src/js/vendor/**/*.js'])
             .pipe(concat('main.js'))
             .pipe(uglify())
             .pipe(gulp.dest('build/js'))
@@ -59,6 +55,7 @@ gulp.task('scripts', function () {
 gulp.task('styles', function(){
     // Compile LESS files
     return gulp.src('src/less/app.less')
+        .pipe(plumber())
         .pipe(less())
         .pipe(rename('style.css'))
         .pipe(csso())
@@ -91,8 +88,6 @@ gulp.task('watch', function (){
 
 });
 
-// The build task (used to store all files that will go to the server)
-gulp.task('build', ['clean', 'copy', 'scripts', 'slim', 'styles']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'copy', 'slim', 'scripts', 'styles', 'watch', 'webserver' ]);
+gulp.task('default', ['copy', 'slim', 'scripts', 'styles', 'watch', 'webserver' ]);
