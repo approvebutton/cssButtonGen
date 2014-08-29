@@ -15,6 +15,9 @@
   .clearfix;
   width: 90%;
   margin: 5% auto;
+  @media @maxWidth {
+    width: 960px;
+  }
 }
 
 body {
@@ -26,18 +29,16 @@ body {
   h1 {
     text-align: center;
     font-size: 1.9em;
-    @media @tablet {
-      color: red;
-    }
-    @media @wide {
-      color:green;
-    }
   }
 }
 /* --- OPTIONS --- */
 
 .options {
   text-align: center;
+  margin-bottom: 20px;
+  @media @tablet {
+    text-align: left;
+  }
   @media @wide {
     float: left;
   }
@@ -45,20 +46,36 @@ body {
 .options__title {
   text-transform: uppercase;
   text-align: center;
-  @media @wide{
+  margin-bottom: 15px;
+  @media @tablet{
+    
   }
 }
-.options__description,
-.options__input {
+.options__description {
   text-align: left;
   margin-bottom: 10px;
-    input {
-      background: @grey;
-      border: none;
-      height: 30px;
-      padding: 0 15px;
-      .border-radius( 15px; )
+  @media @tablet {
+    .inlineblock;
+    width: 100px;
+   }
+}
+.options__input {
+  text-align: left;
+
+  input {
+    background: @grey;
+    border: none;
+    height: 30px;
+    padding: 0 20px;
+    .border-radius(15px);
     }
+
+  @media @tablet {
+    .inlineblock;
+    input {
+      margin-left: 15px;
+    }
+  }
 }
 .options__radius,
 .options__size {
@@ -83,6 +100,13 @@ body {
 /* --- SLIDER ---*/
 .ui-slider {
   position: relative;
+
+  @media @tablet {
+    .inlineblock;
+    width: 250px;
+    vertical-align: none;
+    margin-left: 15px;
+  }
 }
 .ui-slider-horizontal {
   height: .8em;
@@ -117,14 +141,13 @@ body {
 
 .result__form {
   text-align: center;
+  margin-bottom: 15px;
 }
-.form__css {
-  width: 100%;
-}
+
 textarea {
   width: 99%;
   height: 150px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   background: @grey;
   border: none;
   .border-radius(15px);
@@ -132,6 +155,17 @@ textarea {
   resize: vertical;
   outline: none;
   padding: 10px;
+  @media @wide {
+    width: 48%;
+    resize: both;
+    float: left;
+    margin-bottom: 35px;
+  }
+}
+.result__form-css {
+  @media @wide {
+    margin-left: 2%;
+    }
 }
 input[type="email"] {
   background: @grey;
@@ -148,8 +182,5 @@ input[type="email"] {
   height: 40px;
   width: 150px;
   .border-radius(50px;);
-}
-
-textarea {
-
+  outline: none;
 }

@@ -54,17 +54,18 @@ body
       .result__form
         form
           .form__html
-            textarea placeholder="HTML code" readonly=""
+            textarea class="result__form-html" placeholder="HTML code" readonly=""
           .form__css
-            textarea placeholder="CSS code" readonly=""
-          input type="email" placeholder="...your Email" 
-          button#submit Submit
+            textarea class="result__form-css" placeholder="CSS code" readonly=""
+          .form__email
+            input type="email" placeholder="...your Email"
+          .form__button 
+            button#submit Submit
   footer.footer
     .container
       .footer__copyright
         |  Lorem ipsum dolor sit amet.
   
   script src="js/vendor/jquery-1.11.1.min.js" 
-  script src="js/vendor/jquery-ui.min.js" 
   script src="js/main.js"
   
