@@ -3,7 +3,6 @@
 
 var gulp      = require('gulp'),
     gutil     = require('gulp-util'),
-    clean     = require('gulp-clean'),
     concat    = require('gulp-concat'),
     rename    = require('gulp-rename'),
     jshint    = require('gulp-jshint'),
@@ -16,11 +15,7 @@ var gulp      = require('gulp'),
     slim      = require('gulp-slim'),
     plumber   = require('gulp-plumber');
 
-gulp.task('clean', function () {
-    // Clear the destination folder
-    gulp.src('build/**/*.*', { read: false })
-        .pipe(clean({ force: true }));
-});
+
 
 gulp.task('copy', function () {
     // Copy all application files except *.less and .js into the `build` folder
@@ -93,8 +88,6 @@ gulp.task('watch', function (){
 
 });
 
-// The build task (used to store all files that will go to the server)
-gulp.task('build', ['clean', 'copy', 'scripts', 'slim', 'styles']);
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['clean', 'copy', 'slim', 'scripts', 'styles', 'watch', 'webserver' ]);
+gulp.task('default', ['copy', 'slim', 'scripts', 'styles', 'watch', 'webserver' ]);

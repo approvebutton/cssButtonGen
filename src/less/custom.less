@@ -10,6 +10,15 @@
 @grey:       #4B4B4B;
 @red:        #C46D6D;
 @font-color: #E3D3C2;
+@font-color2:#AEA99E;
+
+/* --- Fonts --- */
+
+@import "http://webfonts.ru/import/monofur.css";
+@import "http://webfonts.ru/import/caviar.css";
+@fontMonofur: 'Monofur', sans-serif;
+@fontCaviar: 'Caviar Dreams', sans-serif;
+
 
 .container {
   .clearfix;
@@ -23,6 +32,8 @@
 body {
   background: @bg;
   color: @font-color;
+  font-family: @fontCaviar;
+  font-weight: bold;
 }
 
 .header {
@@ -34,6 +45,7 @@ body {
 /* --- OPTIONS --- */
 
 .options {
+  position: relative;
   text-align: center;
   margin-bottom: 20px;
   @media @tablet {
@@ -41,6 +53,17 @@ body {
   }
   @media @wide {
     float: left;
+
+    &:after {
+      position: absolute;
+      right: -80px;
+      top:0;
+      .inlineblock;
+      content: '';
+      background: @grey;
+      width:2px;
+      height: 165px;
+    }
   }
 }
 .options__title {
@@ -54,27 +77,28 @@ body {
 .options__description {
   text-align: left;
   margin-bottom: 10px;
+
   @media @tablet {
     .inlineblock;
-    width: 100px;
+    width: 120px;
+    vertical-align: none;
    }
 }
 .options__input {
   text-align: left;
-
   input {
     background: @grey;
     border: none;
     height: 30px;
+    width: 100%;
     padding: 0 20px;
     .border-radius(15px);
     }
-
   @media @tablet {
     .inlineblock;
-    input {
-      margin-left: 15px;
-    }
+    vertical-align: none;
+    margin-left: 15px;
+    width:250px;
   }
 }
 .options__radius,
@@ -131,17 +155,37 @@ body {
   outline: none;
   border: none;
 }
-.ui-slider-range {
-  .border-radius (@radius: 10px);
-  background: @green;
-  height: 100%;
+#slider__radius {
+  .ui-slider-range {
+    .border-radius (@radius: 10px);
+    height: 100%;
+    background: @green;
+  }
+}
+#slider__size { 
+  .ui-slider-range {
+    .border-radius (@radius: 10px);
+    height: 100%;
+    background: @red;
+  }
 }
 
 /* --- RESULT CODE --- */
 
 .result__form {
+  position: relative;
   text-align: center;
   margin-bottom: 15px;
+  &:before {
+    .inlineblock;
+    position: absolute;
+    content:'';
+    left:0;
+    top: -50px;
+    height: 2px;
+    width: 100%;
+    background: @grey;
+  }
 }
 
 textarea {
@@ -179,8 +223,11 @@ input[type="email"] {
 #submit {
   background: @green;
   border: none;
-  height: 40px;
+  height: 50px;
   width: 150px;
-  .border-radius(50px;);
+  .border-radius(60px;);
   outline: none;
+  color: #fbfbfb;
+  font-size: 1.2em;
+  padding: 14px;
 }
