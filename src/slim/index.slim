@@ -43,24 +43,28 @@ body
           .options__description
             | Text
           .options__input
-            input type="text" value="Button text"
+            input type="text" value="Button text" id="button__text"
       .result__button
         .result__title
           | Result
-        button#result Button text
+        .result__button-container
+          button#result Button text
   section.result
     .container
       /! Results
       .result__form
-        form
+        form action="" method="post" id="result__form"
           .form__html
-            textarea class="result__form-html" placeholder="HTML code" readonly=""
+            textarea class="result__form-html" placeholder="HTML code" readonly="" name="html"
           .form__css
-            textarea class="result__form-css" placeholder="CSS code" readonly=""
+            textarea class="result__form-css" placeholder="CSS code" readonly="" name="css"
           .form__email
-            input type="email" placeholder="...your Email"
+            input type="email" placeholder="...your Email" id="email" name="email"
+            div.errors
           .form__button 
-            button#submit Submit
+            button#submit type="submit" 
+              | Submit
+
   footer.footer
     .container
       .footer__copyright
