@@ -5,12 +5,14 @@
 /* --- Colors --- */
 
 @bg:         #2E2D2B;
-@scale:      #4B4B4B;
-@green:      #B4C7B5;
 @grey:       #4B4B4B;
-@red:        #C46D6D;
+@lightGreen: #B5C8B6;
+@lightRed:   #C36E6F;
+@darkGreen:  #9DAD9E;
+@darkRed:    #AA6162;
+@cream:      #AEA99E;
 @font-color: #E3D3C2;
-@font-color2:#AEA99E;
+
 
 /* --- Fonts --- */
 
@@ -84,42 +86,6 @@ body {
     vertical-align: none;
    }
 }
-.options__input {
-  text-align: left;
-  input {
-    background: @grey;
-    border: none;
-    height: 30px;
-    width: 100%;
-    padding: 0 20px;
-    .border-radius(15px);
-    }
-  @media @tablet {
-    .inlineblock;
-    vertical-align: none;
-    margin-left: 15px;
-    width:250px;
-  }
-}
-.options__radius,
-.options__size {
-  margin-bottom: 10px;
-}
-.result__button {
-  text-align: center;
-}
-
-
-/* --- RESULT BUTTON --- */
-.result_button {
-  &:extend(.options);
-}
-
-/* --- RESULT CODE --- */
-.result__title {
-  &:extend(.options__title);
-}
-
 
 /* --- SLIDER ---*/
 .ui-slider {
@@ -159,32 +125,85 @@ body {
   .ui-slider-range {
     .border-radius (@radius: 10px);
     height: 100%;
-    background: @green;
+    background: @lightGreen;
   }
 }
 #slider__size { 
   .ui-slider-range {
     .border-radius (@radius: 10px);
     height: 100%;
-    background: @red;
+    background: @lightRed;
   }
 }
+/* --- Slider END --- */
+
+.options__input {
+  text-align: left;
+  input {
+    background: @grey;
+    border: 2px solid @bg;
+    height: 35px;
+    width: 100%;
+    padding: 0 20px;
+    .border-radius(25px);
+    .transition(0.5s);
+    &:hover, &:focus {
+      background: none;
+      border: 2px solid @grey;
+    }
+  }
+
+  @media @tablet {
+    .inlineblock;
+    vertical-align: none;
+    margin-left: 15px;
+    width:250px;
+  }
+}
+.options__radius,
+.options__size {
+  margin-bottom: 10px;
+}
+
+/* --- RESULT BUTTON --- */
+.result__button {
+  &:extend(.options);
+  text-align: center;
+   @media @wide {
+    float: left;
+    margin-left: 23%;
+  }
+}
+#result {
+  outline: none;
+  border: none;
+  background: @cream;
+  color: #EDECEC;
+  padding: 15px 25px;
+  font-size: 1.3em;
+}
+
 
 /* --- RESULT CODE --- */
+.result__title {
+  &:extend(.options__title);
+}
 
 .result__form {
   position: relative;
   text-align: center;
   margin-bottom: 15px;
-  &:before {
-    .inlineblock;
-    position: absolute;
-    content:'';
-    left:0;
-    top: -50px;
-    height: 2px;
-    width: 100%;
-    background: @grey;
+  @media @wide{
+    &:before {
+      .inlineblock;
+      position: absolute;
+      content:'';
+      left:0;
+      top: -50px;
+      height: 2px;
+      width: 100%;
+      background: @grey;
+    }
   }
 }
 
@@ -200,7 +219,7 @@ textarea {
   outline: none;
   padding: 10px;
   @media @wide {
-    width: 48%;
+    width: 49%;
     resize: both;
     float: left;
     margin-bottom: 35px;
@@ -213,15 +232,20 @@ textarea {
 }
 input[type="email"] {
   background: @grey;
-  border: none;
+  border: 2px solid @bg;
   padding: 0 15px;
   .border-radius(25px);
-  height: 40px;
+  height: 42px;
   margin-bottom: 15px;
+  .transition(0.5s);
+  &:hover, &:focus {
+    background: none;
+    border: 2px solid @grey;
+  }
 }
 
 #submit {
-  background: @green;
+  background: @lightGreen;
   border: none;
   height: 50px;
   width: 150px;
@@ -230,4 +254,8 @@ input[type="email"] {
   color: #fbfbfb;
   font-size: 1.2em;
   padding: 14px;
+  .transition(0.3s);
+  &:hover {
+    background: @darkGreen;
+  }
 }
