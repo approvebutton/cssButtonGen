@@ -45,7 +45,7 @@
             Text
           </div>
           <div class="options__input">
-            <input type="text" value="Button text" />
+            <input id="button__text" type="text" value="Button text" />
           </div>
         </div>
       </div>
@@ -53,7 +53,9 @@
         <div class="result__title">
           Result
         </div>
-        <button id="result">Button text</button>
+        <div class="result__button-container">
+          <button id="result">Button text</button>
+        </div>
       </div>
     </div>
   </section>
@@ -61,18 +63,19 @@
     <div class="container">
       <!--Results-->
       <div class="result__form">
-        <form>
+        <form action="" id="result__form" method="post">
           <div class="form__html">
-            <textarea class="result__form-html" placeholder="HTML code" readonly=""></textarea>
+            <textarea class="result__form-html" name="html" placeholder="HTML code" readonly=""></textarea>
           </div>
           <div class="form__css">
-            <textarea class="result__form-css" placeholder="CSS code" readonly=""></textarea>
+            <textarea class="result__form-css" name="css" placeholder="CSS code" readonly=""></textarea>
           </div>
           <div class="form__email">
-            <input placeholder="...your Email" type="email" />
+            <input id="email" name="email" placeholder="...your Email" type="email" />
+            <div class="errors"></div>
           </div>
           <div class="form__button">
-            <button id="submit">Submit</button>
+            <button id="submit" type="submit">Submit</button>
           </div>
         </form>
       </div>

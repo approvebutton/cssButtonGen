@@ -176,11 +176,13 @@ body {
 }
 #result {
   outline: none;
-  border: none;
+  border: 0px solid;
+  .border-radiuses(10px, 10px, 10px, 10px);
   background: @cream;
   color: #EDECEC;
   padding: 15px 25px;
   font-size: 1.3em;
+  .transition(.5s);
 }
 
 

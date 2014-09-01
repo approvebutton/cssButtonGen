@@ -14,7 +14,7 @@ var gulp      = require('gulp'),
     notify    = require('gulp-notify'),
     slim      = require('gulp-slim'),
     plumber   = require('gulp-plumber');
-
+  //jade      = require('gulp-jade-php');
 
 
 gulp.task('copy', function () {
@@ -24,6 +24,8 @@ gulp.task('copy', function () {
             .pipe(gulp.dest('build/img')),
         gulp.src(['src/js/vendor/**'])
             .pipe(gulp.dest('build/js/vendor')),
+        gulp.src(['src/lib/**'])
+            .pipe(gulp.dest('build/lib')),
         gulp.src(['src/*.*'])
             .pipe(gulp.dest('build'))
     );
@@ -34,6 +36,12 @@ gulp.task('slim', function(){
         .pipe(slim({ pretty: true }))
         .pipe(gulp.dest('build'))
 });
+
+// gulp.task('jade', function(){
+//     return gulp.src('src/jade/*.jade')
+//         .pipe(jade({pretty: true}))
+//         .pipe(gulp.dest('build'))
+// });
 
 gulp.task('scripts', function () {
     return es.concat(
@@ -69,6 +77,7 @@ gulp.task('webserver', function() {
     gulp.src('build')
         .pipe(webserver({
             livereload: true,
+            //fallback: "index.php",
             open: { browser: 'chrome' }
         }));
 });
@@ -84,8 +93,6 @@ gulp.task('watch', function (){
 
     // Watch .slim files and run taska if they change
     gulp.watch('src/slim/**/*.slim', ['slim']);
-
-
 });
 
 
