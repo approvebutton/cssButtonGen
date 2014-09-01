@@ -208,30 +208,31 @@ body {
     }
   }
 }
-
+.form__css {
+  @media @wide {
+    .clearfix;
+    float: left;
+    width: 49%;
+    margin-bottom: 35px;
+    margin-left: 2%;
+  }
+}
+.form__html {
+  &:extend(.form__css);
+  margin-left: 0;
+}
 textarea {
-  width: 99%;
+  width: 100%;
   height: 150px;
   margin-bottom: 15px;
   background: @grey;
   border: none;
   .border-radius(15px);
   .placeholder(@color: @font-color);
-  resize: vertical;
   outline: none;
   padding: 10px;
-  @media @wide {
-    width: 49%;
-    resize: both;
-    float: left;
-    margin-bottom: 35px;
-  }
 }
-.result__form-css {
-  @media @wide {
-    margin-left: 2%;
-    }
-}
+
 input[type="email"] {
   background: @grey;
   border: 2px solid @bg;
@@ -260,4 +261,10 @@ input[type="email"] {
   &:hover {
     background: @darkGreen;
   }
+}
+.errors {
+  margin-top: 10px;
+}
+.footer__copyright {
+  text-align: center;
 }
