@@ -14,6 +14,7 @@
     $mail->Username   = "alpha7@sredatv.ru";
     $mail->Password   = "alpha123";
     $mail->From       = "alpha7@sredatv.ru";
+    $mail->FromName   = "CSS Button";
     $mail->AddAddress("{$_POST['email']}");
     $mail->Subject    = 'CSS3 Button';
     $mail->Body     = "HTML: \r\n {$_POST['html']}\r\n CSS: \r\n {$_POST['css']}";
