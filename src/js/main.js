@@ -1,7 +1,9 @@
 jQuery(function ($) {
 
     var radius = 10,
-        size   = 0,
+        size   = 2,
+        width  = 25,
+        height = 15,
         errors,
         $this = $(this);
 
@@ -35,11 +37,41 @@ jQuery(function ($) {
             $('#slider__size').slider({
                 orientaion: "horizontal",
                 max:     15,
-                value:   0,
+                value:   2,
                 range:   "min",
                 animate: "slow",
                 slide: function(e,ui) {
                     size = ui.value;
+                    app.updateButton();
+                    app.updateCSS();
+                    app.createHTML();
+                }
+            }),
+
+            // Slider Button Width
+            $('#slider__width').slider({
+                orientaion: "horizontal",
+                max:     45,
+                value:   25,
+                range:   "min",
+                animate: "slow",
+                slide: function(e,ui) {
+                    width = ui.value;
+                    app.updateButton();
+                    app.updateCSS();
+                    app.createHTML();
+                }
+            }),
+
+            // Slider Button Height
+            $('#slider__height').slider({
+                orientaion: "horizontal",
+                max:     25,
+                value:   15,
+                range:   "min",
+                animate: "slow",
+                slide: function(e,ui) {
+                    height = ui.value;
                     app.updateButton();
                     app.updateCSS();
                     app.createHTML();
@@ -51,7 +83,11 @@ jQuery(function ($) {
         updateButton: function() {
             $("#result").css({
                 borderRadius: radius,
-                borderWidth:  size
+                borderWidth:  size,
+                paddingTop: height,
+                paddingBottom: height,
+                paddingLeft: width,
+                paddingRight: width
             });
         },
 
@@ -63,7 +99,7 @@ jQuery(function ($) {
                 '     -moz-border-radius: ' + radius + 'px;\n' +
                 '          border-radius: ' + radius + 'px;\n' +
                 '  border-width: ' + size + 'px;\n' +
-                '  padding: ' + $("#result").css("padding") +';\n' +
+                '  padding: ' + height + 'px ' + width + 'px;\n' +
                 '}'
             );
         },
@@ -122,4 +158,4 @@ jQuery(function ($) {
         }
   };
     app.initialize();
-})();
+});

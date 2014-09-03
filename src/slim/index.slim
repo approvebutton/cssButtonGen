@@ -29,15 +29,25 @@ body
         .options__title
           | Options
         /! Radius Slider
-        .options__radius
+        .options__slider
           .options__description
             | Border-radius
-          .options__slider#slider__radius
-        /! Size Slider
-        .options__size
+          #slider__radius
+        /! Border Size Slider
+        .options__slider
           .options__description
             | Border-size
-          .options__slider#slider__size
+          #slider__size
+        /! Button Width Slider
+        .options__slider
+          .options__description
+            | Button-width
+          #slider__width
+        /! Button Height Slider
+        .options__slider
+          .options__description
+            | Button-height
+          #slider__height
         /! Text for Button
         .options__text
           .options__description
@@ -69,7 +79,5 @@ body
     .container
       .footer__copyright
         |  Alexander Polovnikov for LoftBlog(c)
-  
-  script src="js/vendor/jquery-1.11.1.min.js" 
+  script src="js/vendor/jquery-1.11.1.min.js"
   script src="js/main.js"
-  

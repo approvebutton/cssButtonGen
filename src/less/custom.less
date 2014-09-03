@@ -125,7 +125,7 @@ body {
   .ui-slider-range {
     .border-radius (@radius: 10px);
     height: 100%;
-    background: @lightGreen;
+    background: @lightRed;
   }
 }
 #slider__size { 
@@ -135,6 +135,21 @@ body {
     background: @lightRed;
   }
 }
+#slider__width { 
+  .ui-slider-range {
+    .border-radius (@radius: 10px);
+    height: 100%;
+    background: @lightGreen;
+  }
+}
+#slider__height { 
+  .ui-slider-range {
+    .border-radius (@radius: 10px);
+    height: 100%;
+    background: @lightGreen;
+  }
+}
+
 /* --- Slider END --- */
 
 .options__input {
@@ -160,8 +175,7 @@ body {
     width:250px;
   }
 }
-.options__radius,
-.options__size {
+.options__slider {
   margin-bottom: 10px;
 }
 
@@ -176,7 +190,7 @@ body {
 }
 #result {
   outline: none;
-  border: 0px solid;
+  border: 2px solid;
   .border-radiuses(10px, 10px, 10px, 10px);
   background: @cream;
   color: #EDECEC;
