@@ -2,7 +2,8 @@ jQuery(function ($) {
 
     var radius = 10,
         size   = 0,
-        errors;
+        errors,
+        $this = $(this);
 
     var app = {
 
@@ -16,6 +17,7 @@ jQuery(function ($) {
 
             // Slider Radius
             $('#slider__radius').slider({
+                
                 orientation: "horizontal",
                 max:     30,
                 value:   10,
@@ -25,6 +27,7 @@ jQuery(function ($) {
                     radius = ui.value;
                     app.updateButton();
                     app.updateCSS();
+                    app.createHTML();
                   }
             }),
 
@@ -39,6 +42,7 @@ jQuery(function ($) {
                     size = ui.value;
                     app.updateButton();
                     app.updateCSS();
+                    app.createHTML();
                 }
             });
         },
@@ -62,6 +66,11 @@ jQuery(function ($) {
                 '  padding: ' + $("#result").css("padding") +';\n' +
                 '}'
             );
+        },
+
+        // Create code in HTML field
+        createHTML: function() {
+            $(".result__form-html").text( '<button class="btn"">'+ $("#button__text").val() + "</button>" )
         },
 
         // Update code in HTML field
