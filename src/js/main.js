@@ -113,7 +113,7 @@ jQuery(function ($) {
         updateHTML: function() {
             $("#button__text").on("keyup", function() {
               $("#result").text( $(this).val() );
-              $(".result__form-html").text( '<button class="btn"">'+ $(this).val() + "</button>" );
+              $(".result__form-html").text( '<button class="btn">'+ $(this).val() + "</button>" );
             });
         },
 
