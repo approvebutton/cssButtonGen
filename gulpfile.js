@@ -13,12 +13,12 @@ var gulp      = require('gulp'),
     webserver = require('gulp-webserver'),
     notify    = require('gulp-notify'),
     slim      = require('gulp-slim'),
-    plumber   = require('gulp-plumber');
-  //jade      = require('gulp-jade-php');
+    plumber   = require('gulp-plumber'),
+    imagemin  = require('gulp-imagemin');
 
 
+// Copy all application files except *.less and .js into the `build` folder
 gulp.task('copy', function () {
-    // Copy all application files except *.less and .js into the `build` folder
     return es.concat(
         gulp.src(['src/img/**'])
             .pipe(gulp.dest('build/img')),
@@ -31,18 +31,14 @@ gulp.task('copy', function () {
     );
 });
 
+// Compile Slim files to HTML
 gulp.task('slim', function(){
     return gulp.src('src/slim/*.slim')
         .pipe(slim({ pretty: true }))
         .pipe(gulp.dest('build'))
 });
 
-// gulp.task('jade', function(){
-//     return gulp.src('src/jade/*.jade')
-//         .pipe(jade({pretty: true}))
-//         .pipe(gulp.dest('build'))
-// });
-
+// Concate, minify and check JS Files
 gulp.task('scripts', function () {
     return es.concat(
         // Detect errors and potential problems in your JavaScript code
@@ -60,8 +56,8 @@ gulp.task('scripts', function () {
     );
 });
 
+// Compile  LESS files to CSS
 gulp.task('styles', function(){
-    // Compile LESS files
     return gulp.src('src/less/app.less')
         .pipe(plumber())
         .pipe(less())
@@ -71,19 +67,23 @@ gulp.task('styles', function(){
         
 });
 
+// Minify Images
+gulp.task('compress', function() {
+    return gulp.src('src/img/**/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/img'))
+});
 
+// LiveReload Server
 gulp.task('webserver', function() {
-    // LiveReload Server
     gulp.src('build')
         .pipe(webserver({
             livereload: true,
-            //fallback: "index.php",
             open: { browser: 'chrome' }
         }));
 });
 
-
-
+// Watch Task
 gulp.task('watch', function (){
     // Watch .js files and run tasks if they change
     gulp.watch('src/js/**/*.js', ['scripts']);
@@ -91,10 +91,13 @@ gulp.task('watch', function (){
     // Watch .less files and run tasks if they change
     gulp.watch('src/less/**/*.less', ['styles']);
 
-    // Watch .slim files and run taska if they change
+    // Watch .slim files and run task if they change
     gulp.watch('src/slim/**/*.slim', ['slim']);
+
+    // Watch add images
+    gulp.watch('src/img/**/*', ['compress']);
 });
 
 
 // The default task (called when you run `gulp`)
-gulp.task('default', ['copy', 'slim', 'scripts', 'styles', 'watch', 'webserver' ]);
+gulp.task('default', ['copy', 'compress', 'slim', 'scripts', 'styles', 'watch', 'webserver' ]);
