@@ -4,30 +4,16 @@
    Modify as content requires.
    ========================================================================== */
 
-@tablet:   ~"only screen and (min-width: 480px)";  // Tablet
-@wide:     ~"only screen and (min-width: 768px)";  // Wide Screen
-@maxWidth: ~"only screen and (min-width: 1140px)"; // Maximal Wide Sreen
+@tablet:   ~"only screen and (min-width: 30em)";  // Tablet
+@wide:     ~"only screen and (min-width: 48em)";  // Wide Screen
+@maxWidth: ~"only screen and (min-width: 71em)"; // Maximal Wide Sreen
 
 
 
 @media @tablet {
 
   /* --- TABLET: Menu --- */
-    nav a {
-        float: left;
-        width: 27%;
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
-    }
 
-    nav li:first-child a {
-        margin-left: 0;
-    }
-
-    nav li:last-child a {
-        margin-right: 0;
-    }
   /* --- TABLET: IE Fixes --- */
     nav ul li {
         display: inline;
@@ -41,30 +27,10 @@
 @media @wide {
 
   /* --- WIDE: CSS3 Effects --- */
-  .header-container,
-  .main aside {
-      -webkit-box-shadow: 0 5px 10px #aaa;
-         -moz-box-shadow: 0 5px 10px #aaa;
-              box-shadow: 0 5px 10px #aaa;
-    }
-  /* --- WIDE: Menu --- */
-  .title {
-      float: left;
-  }
 
-  nav {
-      float: right;
-      width: 38%;
-  }
+  /* --- WIDE: Menu --- */
+ 
   /* --- WIDE: Main --- */
-  .main article {
-      float: left;
-      width: 57%;
-    }
-  .main aside {
-      float: right;
-      width: 28%;
-  }
 }
 
 @media @maxWidth {
