@@ -142,10 +142,11 @@ jQuery(function ($) {
                   type: 'POST',
                   data: data,
                   beforeSend: function(){
-                    $("#submit").next().html("<img src='img/loader.gif'/>");
+                    $(".spinner").show();
                   },
                   success: function() {
                     $("#email").val('');
+                    $(".spinner").hide();
                     $("#submit").next().text("Mail send");
                   },
                   error: function() {
